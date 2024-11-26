@@ -38,7 +38,7 @@ def download(filename):
 def cleanup():
     for filename in os.listdir(UPLOAD_FOLDER):
         file_path = os.path.join(UPLOAD_FOLDER, filename)
-        if os.path.isfile(file_path) and os.path.basename(file_path) not == "doc.txt":
+        if os.path.isfile(file_path):
             os.remove(file_path)
     return redirect(url_for('index'))
 
