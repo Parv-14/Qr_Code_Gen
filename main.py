@@ -13,13 +13,15 @@ if not os.path.exists(UPLOAD_FOLDER):
 def index():
     if request.method == 'POST':
         text = request.form.get('text')
+        fill_color = request.form.get('fill_color')
+        back_color = request.form.get('back_color')
         qr = qrcode.QRCode(
             error_correction=qrcode.constants.ERROR_CORRECT_L,
         )
         qr.add_data(text)
         qr.make(fit=True)
 
-        img = qr.make_image(fill_color="black", back_color="white")
+        img = qr.make_image(fill_color=fill_color, back_color=back_color)
         unique_filename = f"{uuid.uuid4()}.png"
         qr_code_path = os.path.join(UPLOAD_FOLDER, unique_filename)
         img.save(qr_code_path)
