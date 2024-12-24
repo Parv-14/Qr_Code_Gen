@@ -35,6 +35,10 @@ def download(filename):
     print(filename)
     qr_code_path = f"static/{filename}"
     return send_file(path_or_file=qr_code_path,  as_attachment=True)
+    
+@app.route('/download/Desi_Ide')
+def desi_ide():
+    return send_file(path_or_file="static/DESI IDE.zip", as_attachment=True)
 
 @app.route('/cleanup')
 def cleanup():
@@ -45,4 +49,4 @@ def cleanup():
     return redirect(url_for('index'))
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
