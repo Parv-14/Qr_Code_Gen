@@ -38,7 +38,7 @@ def download(filename):
     
 @app.route('/download/Desi_Ide')
 def desi_ide():
-    return send_file(path_or_file="static/qrcodes/DESI IDE.zip", as_attachment=True)
+    return send_file(path_or_file="static/DESI IDE.zip", as_attachment=True)
 
 @app.route('/cleanup')
 def cleanup():
