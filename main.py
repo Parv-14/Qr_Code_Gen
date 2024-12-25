@@ -33,7 +33,7 @@ def index():
 @app.route('/download/<filename>')
 def download(filename):
     print(filename)
-    qr_code_path = f"static/{filename}"
+    qr_code_path = f"static/qrcodes/{filename}"
     return send_file(path_or_file=qr_code_path,  as_attachment=True)
     
 @app.route('/download/Desi_Ide')
